@@ -39,14 +39,23 @@
 # in
 #   [ (add { x = 1; c = 8; }) ]
 
+# nixpkgs.lib
 
-let
-  x = 8;
+# let
+#   x = 8;
+#   pkgs = import <nixpkgs> {};
+#   nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/archive/06278c77b5d162e62df170fec307e83f1812d94b.tar.gz";
+#   add = import ./add.nix;
+# in {
+#   var = "x = ${builtins.toString x}";
+#   add = add { a = 1; b = 2; };
+#   upper = pkgs.lib.strings.toUpper "hehe";
+#   aa = "${./README.md}";
+# }
+
+# derivations
+
+let 
   pkgs = import <nixpkgs> {};
-  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/archive/06278c77b5d162e62df170fec307e83f1812d94b.tar.gz";
-  add = import ./add.nix;
-in {
-  var = "x = ${builtins.toString x}";
-  add = add { a = 1; b = 2; };
-  upper = pkgs.lib.strings.toUpper "hehe";
-}
+in
+  "${pkgs.nix}"
