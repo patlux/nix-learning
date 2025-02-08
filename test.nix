@@ -33,8 +33,18 @@
 
 # x: x + 1
 
+# let
+#   # add = x: x + 1;
+#   add = args@{ x, y ? 0, ... }: x + y + args.c;
+# in
+#   [ (add { x = 1; c = 8; }) ]
+
+
 let
-  # add = x: x + 1;
-  add = args@{ x, y ? 0, ... }: x + y + args.c;
-in
-  [ (add { x = 1; c = 8; }) ]
+  x = 8;
+in {
+  var = "x = ${builtins.toString x}";
+}
+
+
+
