@@ -44,6 +44,7 @@ let
   x = 8;
 in {
   var = "x = ${builtins.toString x}";
+  add = import ./add.nix;
 }
 
 
