@@ -35,6 +35,6 @@
 
 let
   # add = x: x + 1;
-  add = { x, y }: x + y;
+  add = args@{ x, y ? 0, ... }: x + y + args.c;
 in
-  [ (add { x = 1; y = 2; }) ]
+  [ (add { x = 1; c = 8; }) ]
