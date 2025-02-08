@@ -42,10 +42,10 @@
 
 let
   x = 8;
+  pkgs = import <nixpkgs> {};
+  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/archive/06278c77b5d162e62df170fec307e83f1812d94b.tar.gz";
 in {
   var = "x = ${builtins.toString x}";
-  add = import ./add.nix;
+  add = import ./add.nix { a = 1; b = 2; };
+  upper = pkgs.lib.strings.toUpper "hehe";
 }
-
-
-
