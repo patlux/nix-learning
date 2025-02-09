@@ -2,6 +2,12 @@
 
 My first steps with nix
 
+- [x] Follow the [Nix language basics](https://nix.dev/tutorials/nix-language)
+- [x] Follow [Packaging existing software](https://nix.dev/tutorials/packaging-existing-software)
+- [x] Packaging another existing "real" software
+- [x] Packaging a custom app (zig)
+- [ ] Adding overlay to use an older zig version
+
 ```sh
 make
 ```
