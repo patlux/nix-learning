@@ -5,11 +5,14 @@
   };
 
   outputs = { nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system: {
+    flake-utils.lib.eachDefaultSystem (system:
+    let 
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
       packages.default = derivation {
         inherit system;
         name = "yek";
-        builder = "${nixpkgs.legacyPackages."${system}".bash}/bin/bash";
+        builder = with pkgs; "${bash}/bin/bash";
         args = [ "-c" "echo foo > $out" ];
       };
     });
