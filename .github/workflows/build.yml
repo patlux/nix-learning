@@ -11,20 +11,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  package:
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: "write"
-      contents: "read"
-    steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/flakehub-cache-action@main
-      - uses: DeterminateSystems/flake-checker-action@main
-      - run: nix build
-        working-directory: ./package
-      - run: ./result/bin/yek
-        working-directory: ./package
+  # package:
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     id-token: "write"
+  #     contents: "read"
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: DeterminateSystems/nix-installer-action@main
+  #     - uses: DeterminateSystems/flake-checker-action@main
+  #     - run: nix build
+  #       working-directory: ./package
+  #     - run: ./result/bin/yek
+  #       working-directory: ./package
 
   zig:
     runs-on: ubuntu-latest
@@ -34,7 +33,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/flakehub-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
       - run: nix build
         working-directory: ./zig-app
