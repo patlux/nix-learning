@@ -33,7 +33,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/flake-checker-action@main
+      - run: nix flake show
+        working-directory: ./zig-app
       - run: nix build
         working-directory: ./zig-app
       - run: ./result/bin/zig-app
