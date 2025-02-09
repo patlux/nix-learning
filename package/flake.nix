@@ -9,12 +9,6 @@
     let 
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      packages.default = derivation {
-        inherit system;
-        name = "yek";
-        builder = with pkgs; "${bash}/bin/bash";
-        args = [ "-c" "echo foo > $out" ];
-      };
+      packages.default = import ./yek.nix pkgs;
     });
-  
 }

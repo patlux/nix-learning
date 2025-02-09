@@ -2,7 +2,8 @@
   fetchFromGitHub,
   rustPlatform,
   perl,
-  git
+  git,
+  ...
 }:
 
 rustPlatform.buildRustPackage rec {
