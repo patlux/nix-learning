@@ -22,3 +22,17 @@ make yek
 cd packages
 nix build
 ```
+
+## Packaging own app
+
+See ./zig-app
+
+```sh
+cd ./zig-app
+# build & run
+nix build
+./result/bin/zig-app
+
+# or in one command
+nix run
+```
